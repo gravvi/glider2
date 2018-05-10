@@ -24,12 +24,12 @@ import para.glider2.dao.ParagliderDaoImp;
 @ComponentScan(basePackages="para.glider2.* , add.files.*")
 @EnableWebMvc
 public class MvcConfiguration extends WebMvcConfigurerAdapter{
-
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
-
+	
 	@Bean
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -37,29 +37,29 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		dataSource.setUrl("jdbc:mysql://localhost:3306/paragliders");
 		dataSource.setUsername("root");
 		dataSource.setPassword("15001900mcCM");
-
+		
 		return dataSource;
 	}
-
+	
 	@Bean
 	public ParagliderDao getParagliderDao(DataSource dataSource) {
-
+		
 		return new ParagliderDaoImp(dataSource);
 	}
-
+	
 	@Bean(name="multipartResolver")
 	public CommonsMultipartResolver getResolver() throws IOException{
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-		
+
 		//Set the maximum allowed size (in bytes) for each individual file.
-		
+
 		resolver.setMaxUploadSizePerFile(7340032); //7 MiB
-		
+
 		//You may also set other available properties.
-		
+
 		return resolver;
 	}
-	
+
 	@Bean
 	public ViewResolver getViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -67,9 +67,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
-
 	
 
+	
 	@Bean
 	public MessageSource messageSource() {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();

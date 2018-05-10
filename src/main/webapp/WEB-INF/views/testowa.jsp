@@ -13,22 +13,22 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-	
-	<link rel="stylesheet"
+
+<link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 <title>Testowa</title>
 </head>
 <body>
 
-<div class="flex-container">
+	<div class="flex-container">
 		<header>
 			<h1>${powitanie}</h1>
-			
-				<img src="<c:url value="/resources/images2/kulka.jpg"></c:url>"
-				class="img-rounded" alt="kulka" width="1200" height="5"/>
-					<img src="<c:url value="/resources/images2/mcCM4.png"></c:url>"
-				class="img-circle" alt="mc" width="90" height="90" /> 
+
+			<img src="<c:url value="/resources/images2/kulka.jpg"></c:url>"
+				class="img-rounded" alt="kulka" width="1200" height="5" /> <img
+				src="<c:url value="/resources/images2/mcCM4.png"></c:url>"
+				class="img-circle" alt="mc" width="90" height="90" />
 			<h4>${slogan}</h4>
 		</header>
 
@@ -63,72 +63,47 @@
 		</nav>
 
 		<article class="article">
-		
+
 			<h1>${opis}</h1>
-			
+
 		</article>
 
 
 
-		
+
 	</div>
 
-	
-			<table class="table">
-				<thead class="thead-light">
-					<tr>
-						<th>No</th>
-						<th>name</th>
-						<th>kolor</th>
-						<th>date</th>
-						<th>manufacturer</th>
-						<th>cena</th>
-						
-					</tr>
-				</thead>
-				
-					<c:forEach var="contact" items="${contact}" varStatus="status">
-				<tr>
-					<td>${status.index + 1}</td>
-					<td>${contact.name}</td>
-					<td>${contact.kolor}</td>
-					<td>${contact.date}</td>
-					<td>${contact.manufacturer}</td>
-					<td>${contact.price}</td>
-					
-				</tr>
-			</c:forEach>
-			
-			</table>
-		
 
+	<table class="table">
+		<thead class="thead-light">
+			<tr>
+				<th>No</th>
+				<th>name</th>
+				<th>kolor</th>
+				<th>date</th>
+				<th>manufacturer</th>
+				<th>price</th>
+				<th>photo</th>
 
-	<%-- <div align="center">
-		<h1>Lista paralotni</h1>
-	
-		<table border="3">
-			<th>No</th>
-			<th>Name</th>
-			<th>kolor</th>
-			<th>date</th>
-			<th>manufacturer</th>
-			<th>cena</th>
-		<!-- 	<th>Action</th> -->
+			</tr>
+		</thead>
 
-			<c:forEach var="contact" items="${contact}" varStatus="status">
-				<tr>
-					<td>${status.index + 1}</td>
-					<td>${contact.name}</td>
-					<td>${contact.kolor}</td>
-					<td>${contact.date}</td>
-					<td>${contact.manufacturer}</td>
-					<td>${contact.price}</td>
-				
+		<c:forEach var="contact" items="${contact}" varStatus="status">
+			<tr>
+				<td>${status.index + 1}</td>
+				<td>${contact.name}</td>
+				<td>${contact.kolor}</td>
+				<td>${contact.date}</td>
+				<td>${contact.manufacturer}</td>
+				<td>${contact.price}</td>
+				<td><a href="/glider2/pictures">photo</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+		</c:forEach>
 
-				</tr>
-			</c:forEach>
-		</table> --%>
-     <div align="center">
-	<footer>Cybiak@gmail.com</footer>
+	</table>
+
+	<div align="center">
+		<footer>Cybiak@gmail.com</footer>
 </body>
 </html>
